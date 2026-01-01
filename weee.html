@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sum and Trigonometry Project</title>
+</head>
+
+<body>
+    <h1>Sum of Arguments and Trigonometric Values</h1>
+    <div id="output"></div>
+
+    <script>
+        function sum(...args) {
+            return args.reduce((total, num) => total + num, 0);
+        }
+
+        function toRadians(degrees) {
+            return degrees * (Math.PI / 180);
+        }
+
+        function printTrigValues(degrees) {
+            let radians = toRadians(degrees);
+            return `
+                Angle: ${degrees}° <br>
+                sin(${degrees}) = ${Math.sin(radians).toFixed(4)} <br>
+                cos(${degrees}) = ${Math.cos(radians).toFixed(4)} <br>
+                tan(${degrees}) = ${Math.tan(radians).toFixed(4)} <br><br>
+            `;
+        }
+
+        let output = "";
+
+        output += "Sum of (10, 20, 30, 40) = " + sum(10, 20, 30, 40) + "<br><br>";
+
+        output += printTrigValues(30);
+        output += printTrigValues(45);
+        output += printTrigValues(60);
+        output += printTrigValues(90);
+
+        document.getElementById("output").innerHTML = output;
+    </script>
+</body>
+
+</html>
